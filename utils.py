@@ -3,11 +3,17 @@ from hashlib import sha256
 def is_valid_username(username: str) -> bool:
     return username.isalpha()
 
+
+
 def is_valid_password(password: str) -> bool:
     return len(password) >= 8
 
 def is_same_password(password: str, confirm: str) -> bool:
     return password == confirm
+
+
+
+
 
 def laod_users() -> list[dict]:
     with open('data/users.txt') as f:
@@ -42,4 +48,5 @@ def get_user(username: str, password: str) -> dict:
         if user['username'] == username and user['password'] == hashed_password:
             return user
     
+   
     return None
